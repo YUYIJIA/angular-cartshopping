@@ -1,0 +1,4 @@
+<p *ngIf="product.price > 700">
+  <!--用事件绑定更新“Notify Me”按钮，以调用 notify.emit() 方法-->
+  <button (click) = "notify.emit()">Notify Me</button>
+</p>
