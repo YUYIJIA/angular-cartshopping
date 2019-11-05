@@ -1,6 +1,26 @@
 <h3>Cart</h3>
 
+<p>
+  <a routerLink="/shipping">Shipping Prices</a>
+</p>
+
 <div class="cart-item" *ngFor="let item of items">
-  <span>{{ item.name }}</span>
+  <span>{{ item.name }} </span>
   <span>{{ item.price | currency }}</span>
 </div>
+<!--在 form 标签上，使用 ngSubmit 事件绑定来监听表单提交，并使用 checkoutForm 值调用 onSubmit() 方法 -->
+<form [formGroup]="checkoutForm" (ngSubmit)="onSubmit(checkoutForm.value)">
+<!--为 name 和 address 添加输入字段。使用 formControlName 属性绑定来把 checkoutForm 表单控件中的 name 和 address 绑定到它们的输入字段-->
+  <div>
+    <label>Name</label>
+    <input type="text" formControlName="name">
+  </div>
+
+  <div>
+    <label>Address</label>
+    <input type="text" formControlName="address">
+  </div>
+
+  <button class="button" type="submit">Purchase</button>
+  
+</form>
